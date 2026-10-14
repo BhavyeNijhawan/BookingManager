@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>
+<title>Atithi Palettes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#ffffff;
+  --ink:#1a1a1a;
+  --ink-2:rgba(26,26,26,.56);
+  --ink-3:rgba(26,26,26,.36);
+  --line:rgba(26,26,26,.1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:var(--paper)}
+body{margin:0;color:var(--ink);font:400 15px/1.55 "Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding-block:44px 72px;padding-inline:20px}
+h1{font-size:17px;font-weight:500;margin:0 0 4px}
+.lede{color:var(--ink-2);font-size:14px;max-width:58ch;margin:0 0 44px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:52px 36px}
+@media (max-width:1000px){.grid{grid-template-columns:1fr;max-width:400px}}
+.opt{min-width:0}
+.opt h2{font-size:15px;font-weight:500;margin:0 0 2px}
+.opt .sub{font-size:13px;color:var(--ink-2);margin:0 0 16px}
+.sw{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 22px;max-width:380px}
+.sw figure{margin:0;min-width:0}
+.sw i{display:block;aspect-ratio:1;max-width:100%;border-radius:6px;border:1px solid rgba(0,0,0,.07)}
+.sw figcaption{font-size:12px;line-height:1.35;margin-top:6px}
+.sw figcaption span{display:block;color:var(--ink-3);font-size:11px;font-variant-numeric:tabular-nums}
+.note{color:var(--ink-2);font-size:13px;max-width:62ch;margin:56px 0 0;border-top:1px solid var(--line);padding-top:20px}
+
+/* ---- the mock screen; everything inside is painted from four variables ---- */
+.ph{
+  --p-ink-2:color-mix(in srgb,var(--p-ink) 56%,transparent);
+  --p-ink-3:color-mix(in srgb,var(--p-ink) 36%,transparent);
+  --p-line:color-mix(in srgb,var(--p-ink) 10%,transparent);
+  --p-fill:color-mix(in srgb,var(--p-ink) 14%,transparent);
+  background:var(--p-paper);color:var(--p-ink);
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:380px;
+  font-size:13.5px;line-height:1.45;
+}
+.ph .body{padding:24px 20px 6px}
+.ph .date{font-size:12px;color:var(--p-ink-2)}
+.ph .prop{font-size:20px;font-weight:500;line-height:1.2;margin:2px 0 28px}
+.ph section{margin-bottom:28px}
+.ph .lbl{font-size:12px;color:var(--p-ink-2);margin-bottom:6px;display:flex;align-items:center;gap:7px}
+.ph .lbl.att{color:var(--p-alert)}
+.ph .lbl .dot{width:7px;height:7px;border-radius:50%;background:var(--p-alert)}
+.ph .row{padding:12px 0;border-top:1px solid var(--p-line)}
+.ph section .row:last-of-type{border-bottom:1px solid var(--p-line)}
+.ph .r1{display:flex;justify-content:space-between;gap:12px;font-weight:500;font-size:14px}
+.ph .r1 .amt{font-weight:400;color:var(--p-ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ph .r2{color:var(--p-ink-2);font-size:12.5px;margin-top:1px}
+.ph .r3{font-size:12.5px;margin-top:6px}
+.ph .r3.alert{color:var(--p-alert)}
+.ph .acts{display:flex;gap:10px;margin-top:12px}
+.ph .btn{font:500 13px/1 "Poppins",system-ui,sans-serif;border-radius:8px;padding:10px 14px;border:1px solid transparent}
+.ph .btn.primary{background:var(--p-accent);color:var(--p-paper)}
+.ph .btn.quiet{background:transparent;border-color:var(--p-line);color:var(--p-ink)}
+.ph a.link{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:500;color:var(--p-accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+.strip{display:grid;grid-template-columns:104px 1fr;row-gap:12px;align-items:center;font-size:11px;padding-top:6px}
+.strip .days{display:grid;grid-template-columns:repeat(14,1fr);color:var(--p-ink-3);text-align:center;font-variant-numeric:tabular-nums}
+.strip .days b{color:var(--p-ink);font-weight:500}
+.strip .u{color:var(--p-ink-2);font-size:12px}
+.strip .bars{display:grid;grid-template-columns:repeat(14,1fr);height:10px}
+.strip .bar{height:10px;border-radius:3px;background:var(--p-fill);margin-inline:1px}
+.strip .bar.att{background:transparent;border:1px dashed var(--p-alert)}
+.strip .key{grid-column:1/-1;color:var(--p-ink-3);font-size:11px;display:flex;gap:14px;align-items:center;margin-top:2px}
+.strip .key i{display:inline-block;width:14px;height:8px;border-radius:2px;background:var(--p-fill);margin-right:6px;vertical-align:middle}
+.strip .key i.att{background:transparent;border:1px dashed var(--p-alert)}
+
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--p-line);padding:10px 6px 12px;font-size:10.5px;color:var(--p-ink-3);text-align:center}
+.tabs div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.tabs svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tabs .on{color:var(--p-ink)}
+</style>
+
+<div class="wrap">
+  <h1>Palette, second round</h1>
+  <p class="lede">Three options built from B and C, none with more than four colours: paper, ink, an accent for actions, and one alert colour for things that need you. The screen under each is the same Today page, painted in that option.</p>
+
+  <div class="grid">
+
+    <!-- B · Ink -->
+    <div class="opt" style="--p-paper:#ffffff;--p-ink:#17181a;--p-accent:#2e4a6b;--p-alert:#c2512f">
+      <h2>B · Ink</h2>
+      <p class="sub">White paper, near-black ink, deep blue for actions, burnt orange for alerts.</p>
+      <div class="sw">
+        <figure><i style="background:#ffffff"></i><figcaption>Paper<span>#FFFFFF</span></figcaption></figure>
+        <figure><i style="background:#17181a"></i><figcaption>Ink<span>#17181A</span></figcaption></figure>
+        <figure><i style="background:#2e4a6b"></i><figcaption>Accent<span>#2E4A6B</span></figcaption></figure>
+        <figure><i style="background:#c2512f"></i><figcaption>Alert<span>#C2512F</span></figcaption></figure>
+      </div>
+    </div>
+
+    <!-- C · Clay -->
+    <div class="opt" style="--p-paper:#faf7f2;--p-ink:#231f1b;--p-accent:#b4573c;--p-alert:#b4573c">
+      <h2>C · Clay</h2>
+      <p class="sub">Three colours only. Cream paper, warm ink, and terracotta for both actions and alerts.</p>
+      <div class="sw">
+        <figure><i style="background:#faf7f2"></i><figcaption>Paper<span>#FAF7F2</span></figcaption></figure>
+        <figure><i style="background:#231f1b"></i><figcaption>Ink<span>#231F1B</span></figcaption></figure>
+        <figure><i style="background:#b4573c"></i><figcaption>Accent<span>#B4573C</span></figcaption></figure>
+      </div>
+    </div>
+
+    <!-- E · Paper (B + C) -->
+    <div class="opt" style="--p-paper:#f8f6f1;--p-ink:#1e1d1a;--p-accent:#2e4a6b;--p-alert:#b4573c">
+      <h2>E · Paper</h2>
+      <p class="sub">B and C together: cream paper, deep blue for actions, terracotta for alerts.</p>
+      <div class="sw">
+        <figure><i style="background:#f8f6f1"></i><figcaption>Paper<span>#F8F6F1</span></figcaption></figure>
+        <figure><i style="background:#1e1d1a"></i><figcaption>Ink<span>#1E1D1A</span></figcaption></figure>
+        <figure><i style="background:#2e4a6b"></i><figcaption>Accent<span>#2E4A6B</span></figcaption></figure>
+        <figure><i style="background:#b4573c"></i><figcaption>Alert<span>#B4573C</span></figcaption></figure>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note">Greys, dividers and the calendar bars are the ink colour at reduced opacity, so each option really is three or four colours. Platform names are written out instead of coloured badges. The alert colour appears only when something needs you; everything else is ink on paper.</p>
+</div>
+
+<template id="mock">
+<div class="ph">
+  <div class="body">
+    <div class="date">Sunday, 11 October</div>
+    <div class="prop">Amberwood Stays</div>
+
+    <section>
+      <div class="lbl att"><i class="dot"></i>Needs your attention</div>
+      <div class="row">
+        <div class="r1"><span>Rahul Verma</span><span class="amt">₹7,200 due</span></div>
+        <div class="r2">Main Villa · 18–19 Oct · MakeMyTrip, pay at property</div>
+        <div class="r3 alert">No reply on WhatsApp for 20 hours</div>
+        <div class="acts"><span class="btn primary">Call Rahul</span><span class="btn quiet">Mark as fake</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lbl">Today</div>
+      <div class="row">
+        <div class="r1"><span>Sneha Kulkarni</span><span class="amt">arrives 2 pm</span></div>
+        <div class="r2">Garden Cottage · 2 nights · Booking.com · paid</div>
+        <a class="link">Send check-in details</a>
+      </div>
+      <div class="row">
+        <div class="r1"><span>Ananya Rao</span><span class="amt">staying</span></div>
+        <div class="r2">Main Villa · leaves Tuesday · Airbnb · paid</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lbl">Next two weeks</div>
+      <div class="strip">
+        <div></div>
+        <div class="days"><b>11</b><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span></div>
+        <div class="u">Main Villa</div>
+        <div class="bars"><i class="bar" style="grid-column:1/4"></i><i class="bar att" style="grid-column:8/9"></i><i class="bar" style="grid-column:11/14"></i></div>
+        <div class="u">Garden Cottage</div>
+        <div class="bars"><i class="bar" style="grid-column:1/4"></i><i class="bar" style="grid-column:6/10"></i><i class="bar" style="grid-column:13/15"></i></div>
+        <div class="key"><span><i></i>Confirmed</span><span><i class="att"></i>Not verified yet</span></div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="tabs">
+    <div class="on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></svg>Today</div>
+    <div><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Calendar</div>
+    <div><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9"/></svg>Bookings</div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H9l-5 4z"/></svg>Messages</div>
+    <div><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>More</div>
+  </nav>
+</div>
+</template>
+
+<script>
+(function(){
+  var t = document.getElementById('mock');
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.appendChild(t.content.cloneNode(true));
+  });
+})();
+</script>
+
+</body></html>
