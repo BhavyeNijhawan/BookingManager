@@ -4,6 +4,8 @@ Atithi is a phone-first web app (PWA) that shows every booking a small homestay 
 
 **Status (11 Oct 2026):** planning. A clickable prototype with sample data exists (Amberwood Stays, Lonavala: owner Rohan, caretaker Ramesh bhai, units Main Villa and Garden Cottage). There is no backend yet. Nothing in the prototype sends a real message.
 
+**Update (14 Oct 2026):** the prototype was rebuilt in Next.js with a new interface in [`atithi-web/`](atithi-web/). That is the version to show and deploy; `prototype/` is the first static version, kept for reference.
+
 ## Plan documents
 
 | Doc | What it answers |
@@ -29,11 +31,18 @@ Every fact and number in these docs comes from the research reports below and is
 | `docs/` | The five plan documents above | Yes |
 | `docs/research/` | Three research reports dated 11 Oct 2026. The source for every plan figure. | No. Add a new report instead. |
 | `docs/design/` | `palettes.html` and `palettes-local.html` (the palette options shown to the user; "Paper" was chosen) and `old-prototype/` (the first, superseded pass) | Reference only |
-| `prototype/` | The working prototype: `index.html`, `app.js` (sample data, status machine, automations, demo story), `styles.css` (the Paper palette), `manifest.webmanifest`, `sw.js`, `icons/`, `vercel.json` | Yes |
+| `atithi-web/` | The current prototype: a Next.js 16 app with the redesigned interface. See [atithi-web/README.md](atithi-web/README.md) and [atithi-web/DESIGN.md](atithi-web/DESIGN.md) | Yes |
+| `prototype/` | The first static prototype, superseded by `atithi-web/`: `index.html`, `app.js` (sample data, status machine, automations, demo story), `styles.css` (the Paper palette), `manifest.webmanifest`, `sw.js`, `icons/`, `vercel.json` | Yes |
 | `tools/` | `build-artifact.py` bundles the prototype into one HTML file. `make-icons.py` draws the PWA icons (needs Pillow). | Yes |
 | `build/` | Generated output: `atithi-artifact.html` | No. Regenerate with `tools/build-artifact.py`. |
 
-## Run the prototype locally
+## Deploy the app on Vercel
+
+Import this repository in Vercel and set **Root Directory** to `atithi-web`. Vercel then detects Next.js; nothing else needs setting. If the project was imported with the root directory left at `./`, the site shows Vercel's "404: NOT_FOUND" page: open **Settings › Build and Deployment**, set **Root Directory** to `atithi-web` and **Framework Preset** to **Next.js**, save, and redeploy.
+
+To run it locally: `cd atithi-web`, `npm install`, `npm run dev`.
+
+## Run the static prototype locally
 
 Either of these works:
 
@@ -48,7 +57,7 @@ Notes:
 - The service worker only registers over `https`, so install-to-home-screen and offline behaviour can only be tested on a deployed copy.
 - Narrow the browser to phone width (about 390 px). The layout is capped at 480 px.
 
-## Deploy the prototype
+## Deploy the static prototype
 
 Option A, from the command line:
 
